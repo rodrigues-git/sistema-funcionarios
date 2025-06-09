@@ -1,6 +1,8 @@
 #include "header.h"
 
 
+// métodos para definir e retornar atributos básicos da classe
+
 void funcionario::setNome(std::string nome){
     this->nome = nome;
 }
@@ -25,10 +27,10 @@ int funcionario::getId(){
     return id;
 }
 
-void funcionario::exibirInfo(){
+void funcionario::exibirInfo(){ // método para exibir informações, será reescrito
     
 }
 
-funcionario::~funcionario(){
+funcionario::~funcionario(){ //destrutor
 
 }

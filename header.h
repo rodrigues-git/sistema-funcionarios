@@ -3,7 +3,7 @@
 
 #include <string>
 
-class funcionario{
+class funcionario{ // declaração de classe abstrata funcionário e todos os seus atributos e métodos
 
     protected:
         std::string nome;
@@ -23,14 +23,14 @@ class funcionario{
         void setId(int id);
         int getId();
 
-        virtual void exibirInfo();
-        virtual float calcularSalarioFinal() = 0;
+        virtual void exibirInfo(); 
+        virtual float calcularSalarioFinal() = 0; // declaração de método virtual puro para tornar a classe abstrata
 
         virtual ~funcionario();
 
 };
 
-class desenvolvedor : public funcionario{
+class desenvolvedor : public funcionario{  // declaração de subclasse desenvolvedor e seus atributos/métodos específicos
 
     private:
         int quantidadeDeProjetos;
@@ -42,7 +42,7 @@ class desenvolvedor : public funcionario{
         void exibirInfo() override;
 };
 
-class gerente : public funcionario{
+class gerente : public funcionario{ //declaração de subclasse gerente e seus atributos/métodos específicos
 
     private:
         float bonusMensal;
@@ -55,7 +55,7 @@ class gerente : public funcionario{
 
 };
 
-class estagiario : public funcionario{
+class estagiario : public funcionario{ //declaração de subclasse estagiario e seus atributos/métodos específicos
 
     private:
         int horasTrabalhadas;
@@ -67,6 +67,5 @@ class estagiario : public funcionario{
         void exibirInfo() override;
 
 };
-
 
 #endif

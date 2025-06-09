@@ -3,13 +3,13 @@
 #include <limits> 
 
 int main() {
-    
-    funcionario* funcionarios[10]; 
+
+    funcionario* funcionarios[10];  //vetor de ponteiros para armazenar ate 10 funcionarios
     int total = 0;
 
     std::cout << "----------Cadastro de Funcionarios----------" << std::endl;
 
-    while (total < 10){
+    while (total < 10){ //loop de cadastro até atingir o limite de 10 ou o usuario encerrar
 
         int tipo;
 
@@ -21,11 +21,11 @@ int main() {
 
         std::cout << std::endl;
 
-        if(tipo == 0){
+        if(tipo == 0){ //encerra o cadastro se o usuario digitar 0
             break;
         }
 
-        else if (tipo == 1){
+        else if (tipo == 1){ //cadastro de desenvolvedor
             desenvolvedor* dev = new desenvolvedor();
 
             int id, projetos;
@@ -51,10 +51,11 @@ int main() {
             std::cin >> salarioBase;
             dev->setSalarioBase(salarioBase);
 
-            funcionarios[total] = dev;
+            funcionarios[total] = dev; //armazena no vetor
             total++;  
         }
-
+        
+        //cadastro de gerente
         else if(tipo == 2){
             gerente* grt = new gerente();
 
@@ -86,6 +87,7 @@ int main() {
             total++;
         }
 
+        //cadastro de estagiário
         else if(tipo == 3){
             estagiario* estg = new estagiario();
 
@@ -117,11 +119,14 @@ int main() {
             total++; 
         }
 
+        //tipo invalido caso o usuario digite qualquer numero diferente
         else{
             std::cout << "Tipo invalido" << std::endl;
         }
     }
 
+
+    //exibe as informacoes ou uma mensagem se não houver funcionários
     if(total == 0){
         std::cout << "Nenhum funcionario cadastrado" << std::endl;
     }
@@ -138,6 +143,8 @@ int main() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get();
 
+
+    //libera a memoria alocada
     for (int i = 0; i < total; i++) {
         delete funcionarios[i];
     }
